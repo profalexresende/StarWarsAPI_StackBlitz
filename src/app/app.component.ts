@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, VERSION, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { retry, Observable } from 'rxjs';
 
@@ -21,12 +21,15 @@ export class AppComponent {
   }
 
   abrirDetalheFilme(film){
+    
     let urlDividida=film.url.split('/');
-    let filmId=urlDividida[5];
-    console.log(urlDividida);
-    console.log(filmId);
-    console.log (`/tela2/${filmId}`)
-    this.router.navigateByUrl(`/tela2/${filmId}`);
+    let filmeId=urlDividida[5];
+    const parametro: NavigationExtras={state:{filmeId}};
+    this.router.navigate(['tela2'],parametro);
+    //console.log(urlDividida);
+    //console.log(filmId);
+    //console.log (`/tela2/${filmId}`)
+    //this.router.navigateByUrl(`/tela2/${filmId}`);
   }
 
   ionViewDidEnter() {}
