@@ -20,5 +20,14 @@ export class AppComponent {
     this.films = this.http.get('https://swapi.dev/api/films');
   }
 
+  abrirDetalheFilme(film){
+    let urlDividida=film.url.split('/');
+    let filmId=urlDividida[5];
+    console.log(urlDividida);
+    console.log(filmId);
+    console.log (`/tela2/${filmId}`)
+    this.router.navigateByUrl(`/tela2/${filmId}`);
+  }
+
   ionViewDidEnter() {}
 }

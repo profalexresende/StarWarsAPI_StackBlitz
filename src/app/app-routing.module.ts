@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'tela2/:id',
+    loadChildren: () => import('./tela2/tela2.module').then( m => m.Tela2Module)
+  }
   
 ];
 

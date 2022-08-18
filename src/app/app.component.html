@@ -2,7 +2,7 @@
   <ion-content>
     <ion-list>
       <h4 align="center">Filmes Star Wars</h4>
-    <ion-item button detail lines="inset" *ngFor="let film of (films | async)?.results" > {{ film.title }}
+    <ion-item button detail lines="inset" *ngFor="let film of (films | async)?.results" (click)="abrirDetalheFilme(film)"> {{ film.title }}
     </ion-item>
   </ion-list>
   </ion-content>
