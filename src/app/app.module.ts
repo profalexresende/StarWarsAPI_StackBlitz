@@ -3,19 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
+
 import { HelloComponent } from './hello.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(),
-    HttpClientModule,
-    AppRoutingModule,
+    RouterModule.forRoot([{ path: '', component: AppComponent }]),
+
   ],
   declarations: [AppComponent, HelloComponent],
+  providers: [RouterModule, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
